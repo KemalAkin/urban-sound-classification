@@ -8,6 +8,12 @@ The project includes the following steps:
 - Splitting the data into train, test, and validation sets
 - Model building and training 
 
+## Table of Contents
+1. [Dataset](#Dataset)
+2. [Mel Spectrogram](#Mel-Spectrogram)
+3. [Preprocessing](#Preprocessing)
+4. [Training the Model](#Training-the-Model)
+
 ## Dataset
 The dataset contains 8732 labeled sound excerpts of urban sounds from 10 classes and it is publicly available [here](https://urbansounddataset.weebly.com/urbansound8k.html).
 
