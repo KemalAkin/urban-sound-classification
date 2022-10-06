@@ -1,6 +1,12 @@
 # Urban Sound Classification w/ CNN
 
-As the final project of [Global AI Hub DL Bootcamp](https://globalaihub.com/activity/), we used Convolutional Neural Network (CNN) to classify urban sounds. 
+As the final project of [Global AI Hub DL Bootcamp](https://globalaihub.com/activity/), we used Convolutional Neural Network (CNN) to classify urban sounds.
+
+The project includes the following steps:
+- Creating Mel spectrograms from sound files
+- Preprocessing the spectrograms for training (grayscaling - resizing - normalization)
+- Splitting the data into train, test, and validation sets
+- Model building and training 
 
 ## Dataset
 The dataset contains 8732 labeled sound excerpts of urban sounds from 10 classes and it is publicly available [here](https://urbansounddataset.weebly.com/urbansound8k.html).
@@ -21,7 +27,29 @@ A random sample from the metadata is given below:
 | 2734 | 159751-8-0-11.wav | 159751 |  6.6505  | 10.6505 |          2 |      4 |         8 | siren            |
 
 ## Mel Spectrogram
+A spectrogram is a visualization of the frequency spectrum of a signal, where the frequency spectrum of a signal is the frequency range that is contained by the signal. Mel spectrogram is basically a spectrogram that is represented in Mel scale.
 
-## Preprocessing with OpenCV
+We used the library ```Librosa``` in order to create Mel Spectrograms. In order to save them according to their class ID, we used metadata to match the filename with the class ID. The relevant Jupyter notebook is available [here](https://github.com/KemalAkin/urban-sound-classification/blob/main/spectogram.ipynb). 
+
+
+## Preprocessing  
+This steps consists of grayscaling, resizing and normalization of the spectrograms using ```OpenCV```. Further, the data is splitted to train, test, and validation sets. The relevant Jupyter notebook is available [here](https://github.com/KemalAkin/urban-sound-classification/blob/main/preprocessing.ipynb).
 
 ## Training the Model
+Finally, CNN model is used for training. The model summary is given below:
+| Layer (type)                   | Output Shape       | Param # |
+|--------------------------------|--------------------|---------|
+| conv2d (Conv2D)                | (None, 64, 64, 32) | 320     |
+| max_pooling2d (MaxPooling2D)   | (None, 32, 32, 32) | 0       |
+| conv2d_1 (Conv2D)              | (None, 32, 32, 64) | 18496   |
+| max_pooling2d_1 (MaxPooling2D) | (None, 16, 16, 64) | 0       |
+| conv2d_2 (Conv2D)              | (None, 16, 16, 64) | 36928   |
+| flatten (Flatten)              | (None, 16384)      | 0       |
+| dense (Dense)                  | (None, 64)         | 1048640 |
+| dropout (Dropout)              | (None, 64)         | 0       |
+| dense_1 (Dense)                | (None, 64)         | 4160    |
+| dropout_1 (Dropout)            | (None, 64)         | 0       |
+| dense_2 (Dense)                | (None, 10)         | 650     |
+
+Relevant Jupyter notebook is available [here](https://github.com/KemalAkin/urban-sound-classification/blob/main/cnn_model_trained.ipynb).
+
