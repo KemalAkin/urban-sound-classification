@@ -37,12 +37,14 @@ A spectrogram is a visualization of the frequency spectrum of a signal, where th
 
 We used the library ```Librosa``` in order to create Mel Spectrograms. In order to save them according to their class ID, we used metadata to match the filename with the class ID. The relevant Jupyter notebook is available [here](https://github.com/KemalAkin/urban-sound-classification/blob/main/spectogram.ipynb). 
 
-[Mel Spectrogram](TestFiles/mspect_test.png)
+![Mel Spectrogram](https://github.com/KemalAkin/urban-sound-classification/blob/main/TestFiles/mspect_test.png?raw=true)
 
 ## Preprocessing  
 This steps consists of grayscaling, resizing and normalization of the spectrograms using ```OpenCV```. Further, the data is splitted to train, test, and validation sets. The relevant Jupyter notebook is available [here](https://github.com/KemalAkin/urban-sound-classification/blob/main/preprocessing.ipynb).
 
-[Processed Image](TestFiles/mspect_test_gray.png)
+After preprocessing, the spectrogram looks like
+
+![Processed Image](https://github.com/KemalAkin/urban-sound-classification/blob/main/TestFiles/mspect_test_gray.png?raw=true)
 
 ## Training the Model
 Finally, CNN model is used for training. The model summary is given below:
